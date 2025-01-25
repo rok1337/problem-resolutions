@@ -44,3 +44,23 @@ for (auto u: adj[s]){
     process node u
 }
 
+Representación mediante matriz de adyacencia
+Una matriz de adyacencia es un arreglo bidimensional que indica qué aristas
+contiene el grafo. Podemos verificar de manera eficiente, a partir de una matriz
+de adyacencia, si existe una arista entre dos nodos. La matriz puede almacenarse como un arreglo.
+
+donde cada valor `adj[a][b]` indica si el grafo contiene una arista desde el nodo `a` al nodo `b`. Si la arista está incluida en el grafo, entonces `adj[a][b] = 1`; de lo contrario, `adj[a][b] = 0`. Por ejemplo, el grafo...
+
+Si el grafo es ponderado, la representación mediante matriz de adyacencia se puede extender de modo que la matriz contenga el peso de la arista si esta existe. Usando esta representación, el grafo...
+
+El inconveniente de la representación mediante matriz de adyacencia es que la matriz contiene \(n^2\) elementos, y generalmente la mayoría de ellos son ceros. Por esta razón, esta representación no puede ser utilizada si el grafo es grande.
+
+Representación mediante lista de aristas  
+Una lista de aristas contiene todas las aristas de un grafo en algún orden. Esta es una forma conveniente de representar un grafo si el algoritmo procesa todas las aristas del grafo y no es necesario encontrar aristas que comiencen en un nodo específico.  
+La lista de aristas puede almacenarse en un vector.
+
+vector<pair<int,int>> edges;
+
+donde cada par (a, b) denota que existe una arista desde el nodo a hasta el nodo b. Así, el grafo...
+
+Cada elemento en esta lista tiene la forma (a, b, w), lo que significa que existe una arista desde el nodo a hasta el nodo b con peso w. Por ejemplo, el grafo...
