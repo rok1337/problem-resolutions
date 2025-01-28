@@ -63,13 +63,13 @@ Sin embargo, si el arreglo está ordenado, la situación es diferente. En este c
 **Método 1**  
 La forma habitual de implementar la búsqueda binaria se asemeja a buscar una palabra en un diccionario. La búsqueda mantiene una región activa en el arreglo, que inicialmente contiene todos los elementos del arreglo. Luego, se realizan varios pasos, cada uno de los cuales reduce a la mitad el tamaño de la región.  
 
-En cada paso, la búsqueda verifica el elemento del medio de la región activa. Si el elemento del medio es el elemento objetivo, la búsqueda termina. De lo contrario, la búsqueda continúa recursivamente en la mitad izquierda o derecha de la región, dependiendo del valor del elemento del medio.  
+En cada paso, la búsqueda verifica el elemento del medio de la región activa. Si el elemento del medio es el elemento objetivo, la búsqueda termina. De lo contrario, la búsqueda continúa recursivamente en la mitad izquierda o derecha de la región, dependiendo del valor del elemento del medio.
 
-La idea anterior se puede implementar de la siguiente manera:  
+La idea anterior se puede implementar de la siguiente manera:
 
 En esta implementación, la región activa es de `a . . . b`, y, al principio, la región es `0 . . . n − 1`. El algoritmo reduce a la mitad el tamaño de la región en cada paso, por lo que la complejidad temporal es O(log n).
 
-**Método 2**  
+**Método 2**
 Un método alternativo para implementar la búsqueda binaria se basa en una forma eficiente de iterar a través de los elementos del arreglo. La idea es realizar saltos y reducir la velocidad a medida que nos acercamos al elemento objetivo.  
 
 La búsqueda recorre el arreglo de izquierda a derecha, y la longitud inicial del salto es `n/2`. En cada paso, la longitud del salto se reduce a la mitad: primero `n/4`, luego `n/8`, `n/16`, etc., hasta que finalmente la longitud sea 1. Después de los saltos, o bien se encuentra el elemento objetivo, o sabemos que no aparece en el arreglo.  
