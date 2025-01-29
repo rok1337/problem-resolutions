@@ -1,7 +1,8 @@
 class Solution {
     public int search(int[] nums, int target) {
-        int a = 0, b = n - 1;
         int n = nums.length;
+        int a = 0, b = n - 1;
+        int index = - 1;
         while(a <= b){
             int k = (a + b) / 2;
             if(nums[k] == target){
@@ -11,24 +12,30 @@ class Solution {
             else a = k + 1;
         }
 
-        while(a < b ){
+        while(a <= b ){
             int k = (a + b) / 2;
             if(nums[k] > nums[n]) a = k + 1;
-            else n = k;
+            else n = k - 1;
         }
         
-        int mid = 1;
-        if(mid == 0){
-            a = 0;
-            b = n - 1;
-        }else if(target >= nums[0] && target <= nums[mid - 1]){
-            a = 0;
-            b = mid - 1;
+        index = a;
+        a = 0;
+        b = n - 1;
+        if(target >= nums[index] &&  target <= nums[b]){
+            a = index;
         }else{
-            a = mid;
-            b = n - 1;
+            b = index - 1;
         }
-    
+
+        while(a <= b){
+            int k = (a + b) / 2;
+            if(nums[k] == target){
+                return k;
+            }
+            if(nums[k] > target){
+                b = k - 1;
+            }else b = k + 1;
+        }
         return -1;
     }
 }
